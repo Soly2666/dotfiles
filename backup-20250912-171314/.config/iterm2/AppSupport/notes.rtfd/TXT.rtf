@@ -1,0 +1,115 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0\cname textColor;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf2 #-------=[ RHEL ]=------------\
+\uc0\u8658  sudo subscription-manager register --username=islam.elbanna1@ibm.com --password=Redhat@123\
+\uc0\u8658 \
+\uc0\u8658 \
+\uc0\u8658 \
+\uc0\u8658 \
+\
+#-------=[ Docker ]=------------\
+#\
+\uc0\u8658  \
+\uc0\u8658 \
+\uc0\u8658 \
+\uc0\u8658 \
+\
+#-------=[ OpenShift ]=---------\
+# Login \
+oc login --token=sha256~SE7ARlApc_PwRoqB_oR0AiRpQkjQ1RsJrAsVINeo5I8 --server=https://c115-e.eu-de.containers.cloud.ibm.com:31985\
+\
+# To Get Unhealthy PODs:\
+oc get pods -A |grep -Ev "Completed|1/1|2/2|3/3|4/4|5/5|6/6|7/7"\
+\
+oc get pods -n turbo\
+ |grep -Ev "Completed|1/1|2/2|3/3|4/4|5/5|6/6|7/7"\
+oc get pods -n noi |grep -Ev "Completed|1/1|2/2|3/3|4/4|5/5|6/6|7/7"\
+\
+# backup all PV\
+\
+for in $(cat); do oc get pvc $i -o yaml >> $i'.'yaml ; done\
+\
+# backup all PVC for a specific namespace\
+oc get pvc |awk 'NR>1\{print $1\}' | for i \
+\
+# Delete all pods in namespace\
+kubectl delete pod `kubectl get pods --namespace xxxxxx |awk '$3 == "Error" \{print $1\}'` --namespace \
+\
+# Delete Project in Terminating state\
+## First, attempt running:\
+$ oc delete project <project name> --force --grace-period=0\
+\
+\
+## This will list the resources that are still hanging around. \
+\
+oc api-resources --verbs=list --namespaced -o name | xargs -n 1 oc get --show-kind --ignore-not-found -n <your-namespace>\
+\
+\
+Delete the finalizers section. Save your changes, and repeat for the rest of the listed resources.\
+oc edit <resource> -n <namespace>\
+\
+\
+Or\
+\
+# Run the following curl command in your terminal window to fully remove the unwanted Project.\
+curl -k -H "Content-Type: application/json" -H "Authorization: Bearer $(oc whoami -t)" -X PUT --data-binary @<Project>-ns.json  https://\
+\
+### To Ensure that the OpenShift Container Platform \
+oc -n default get po | awk 'docker-registry/\{print $1\}'\
+\
+oc exec -it docker-regisrty-xxxxx-yyyy bash\
+\
+df -h |awk 'NR==1 \{print\};/registry/\{print\}'\
+\
+#-------------------------------\
+# Download ack\
+curl https://beyondgrep.com/ack-2.22-single-file > /bin/ack $$ chmod 0755 !#:3\
+#-------------------------------\
+oc get nodes\
+oc get nodes --show-lables\
+oc get all -owide\
+oc get clusteroperators.config.openshift.io -o wide\
+oc projects\
+oc get pods -n openshift-etcd\
+oc describe pod/etcd-master0.ocp47.ibm.cloud -n openshift-etcd\
+oc get routes -A\
+oc get proxy cluster\
+oc get proxy cluster -oyaml\
+oc edit proxy/cluster\
+\
+\
+#-------------------------------\
+# IBM Cloud\
+ibmcloud update\
+ibmcloud login --sso -a https://api.us-east.bluemix.net -u Islam.elbanna@Ibm.com\
+ibmcloud login -a cloud.ibm.com -r us-south\
+ibmcloud login --sso -a cloud.ibm.com -r us-south -g OCP_RG\
+ibmcloud login --sso -a https://cloud.ibm.com -u Islam.elbanna@Ibm.com -r us-south -g default\
+ibmcloud login --sso -a https://cloud.ibm.com -u Islam.elbanna@Ibm.com -r us-south -g Default\
+\
+ibmcloud oc cluster ls\
+\
+ibmcloud sl hardware list\
+ibmcloud sl hardware credentials\
+ibmcloud sl hardware credentials 1640207\
+ibmcloud sl vs reboot 102090322\
+\
+ibmcloud catalog\
+\
+ibmcloud target -c 1979198\
+ibmcloud target -c 6edd46c8e47b497bae7c98825b93a561\
+ibmcloud target -g RESOURCE_GROUP\
+ibmcloud sl vs list\
+\
+ibmcloud ks cluster ls\
+ibmcloud ks cluster config --cluster bqpu2h1d0a76iegob8lg\
+ibmcloud oc cluster service ls --all-namespaces\
+\
+ssh -p 4422 69c775b073365631dfa56ecdb7fc9b1c760931a8fee76aca34e3d118564396ce@SDRW058.prod.mobily.lan\
+\
+scp -p 4422 ~/Downloads/release-239-1.tar.gz f1fe9d5a860753015ea854ead6d329538d04edfe35daf4c51d42d7a96b560726@SDRW058.prod.mobily.lan:/tmp/\
+}

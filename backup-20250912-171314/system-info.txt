@@ -1,0 +1,7 @@
+Backup Date: Fri Sep 12 17:13:17 +03 2025
+Hostname: Watch
+OS: Darwin Watch 24.6.0 Darwin Kernel Version 24.6.0: Mon Jul 14 11:30:29 PDT 2025; root:xnu-11417.140.69~1/RELEASE_ARM64_T6000 arm64
+Shell: /bin/zsh
+Zsh Version: zsh 5.9 (arm-apple-darwin21.3.0)
+Git Version: git version 2.51.0
+Homebrew Packages: See brew-packages.txt

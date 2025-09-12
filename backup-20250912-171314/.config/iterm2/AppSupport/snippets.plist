@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>snippets</key>
+	<array>
+		<dict>
+			<key>escaping</key>
+			<integer>2</integer>
+			<key>guid</key>
+			<string>96AF6155-7AB6-4241-96B1-7B1705393EAB</string>
+			<key>title</key>
+			<string>[FYRE-Get Quota]</string>
+			<key>value</key>
+			<string>curl -k -u islam.elbanna:MJ4E2hbnaAaCryfuObZCsurPhXrz3NoPwstyKFWUf 'https://ocpapi.svl.ibm.com/v1/quota' | jq .</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>escaping</key>
+			<integer>2</integer>
+			<key>guid</key>
+			<string>3BF1F43D-17D9-48AF-9C3A-58CDB0B48854</string>
+			<key>title</key>
+			<string>[Ripgrep-view files]</string>
+			<key>value</key>
+			<string>rg --files | sk --preview="bat {} --color=always"</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>escaping</key>
+			<integer>2</integer>
+			<key>guid</key>
+			<string>F5D20123-2A9B-4F39-83BB-ED4C53D9E523</string>
+			<key>title</key>
+			<string>[TMUX-Start]</string>
+			<key>value</key>
+			<string>tmux new -s MBP</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>escaping</key>
+			<integer>2</integer>
+			<key>guid</key>
+			<string>F14215D7-64EA-45A5-A2DE-066D3FD42BC7</string>
+			<key>title</key>
+			<string>[TMUX-Attach]</string>
+			<key>value</key>
+			<string>tmux attach -t MBP</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>escaping</key>
+			<integer>2</integer>
+			<key>guid</key>
+			<string>68E12EC3-2FED-4CDC-918C-4CD35C5AEC1F</string>
+			<key>title</key>
+			<string>[FZF-view process]</string>
+			<key>value</key>
+			<string>ps -ef|fzf --preview="bat {} --color=always"</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>escaping</key>
+			<integer>2</integer>
+			<key>guid</key>
+			<string>E9FA5D64-BCA1-4F37-8C9F-7ADD8B9AA1E8</string>
+			<key>title</key>
+			<string>[FZF-view files]</string>
+			<key>value</key>
+			<string>vim $(fzf --preview="bat {} --color=always")</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>escaping</key>
+			<integer>2</integer>
+			<key>guid</key>
+			<string>D01FB67D-ABE3-4DD2-8D3B-4B871BDEB2CD</string>
+			<key>tags</key>
+			<array/>
+			<key>title</key>
+			<string>[FZF-VIM Openfile]</string>
+			<key>value</key>
+			<string>vim $(fzf --preview="bat {} --color=always")</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>escaping</key>
+			<integer>2</integer>
+			<key>guid</key>
+			<string>978EA8FC-4645-4EB9-A5F7-9BAEE912846D</string>
+			<key>tags</key>
+			<array/>
+			<key>title</key>
+			<string>[Kube - get ] - Get unhealthy PODs</string>
+			<key>value</key>
+			<string>oc get pods -A |grep -Ev "Completed|1/1|2/2|3/3|4/4|5/5|6/6|7/7"</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>escaping</key>
+			<integer>2</integer>
+			<key>guid</key>
+			<string>D79EFACE-6FD2-478E-BB7D-3F179EDCBBFD</string>
+			<key>tags</key>
+			<array/>
+			<key>title</key>
+			<string>[Kube - delete pods] - delete all Pods in NS</string>
+			<key>value</key>
+			<string>kubectl delete pod `kubectl get pods --namespace xxxxxx |awk '$3 == "Error" {print $1}'` --namespace </string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+</dict>
+</plist>
