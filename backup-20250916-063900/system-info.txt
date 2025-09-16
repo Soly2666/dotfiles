@@ -1,0 +1,7 @@
+Backup Date: Tue Sep 16 06:39:03 +03 2025
+Hostname: Islams-MacBook-Pro.local
+OS: Darwin Islams-MacBook-Pro.local 25.0.0 Darwin Kernel Version 25.0.0: Mon Aug 25 21:17:51 PDT 2025; root:xnu-12377.1.9~3/RELEASE_ARM64_T6000 arm64
+Shell: /bin/zsh
+Zsh Version: zsh 5.9 (arm-apple-darwin21.3.0)
+Git Version: git version 2.51.0
+Homebrew Packages: See brew-packages.txt

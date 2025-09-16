@@ -1,0 +1,59 @@
+syntax on
+
+set nocompatible
+set mouse=a
+set showmatch
+set autoindent
+set smartindent
+set backspace=2
+set tabstop=4
+set number
+set smarttab
+set shiftwidth=4
+set background=dark
+set noshowmode
+set backspace=indent,eol,start
+set conceallevel=0
+
+"------------------------------------------------"
+" This is where we will add plugins to install
+
+call plug#begin()
+
+"--- Themes ---"
+Plug 'morhetz/gruvbox'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'nlknguyen/papercolor-theme'
+Plug 'joshdick/onedark.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
+
+"--- NerdTree ---"
+Plug 'preservim/nerdtree'
+
+call plug#end()
+
+"------------------------------------------------"
+" vim options that make plugins better
+
+set updatetime=100
+set laststatus=2
+
+
+"--------- Plugins configuration ----------------"
+" Plug - autoload Plug if needed
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" NERDTree - NERDTress File highlighting
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+ exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+ exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+" airline_powerline 
+let g:airline_powerline_fonts = 1
